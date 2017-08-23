@@ -27,10 +27,10 @@ let bot = new builder.UniversalBot(connector, (session)=>{
 // bot.recognizer(new builder.LuisRecognizer(luis_url));
 bot.dialog('greeting',(session)=>{
     console.log('yiban info :'+session.userData.yb_info)
-    console.log(yb.access_token)
+    console.log('vq info : '+yb.vq_info)
     session.endDialog(yb.access_token)
 }).triggerAction({
-    matches: /^快搭$/
+    matches: /^test$/
 })
 
 
