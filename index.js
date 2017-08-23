@@ -31,7 +31,7 @@ bot.dialog('greeting',(session)=>{
     console.log('vq info : '+yb.vq_info)
     console.log('vq info : '+JSON.stringify(yb.vq_info))
 
-    console.log('at : '+yb.access_token.visit_oauth.access_token)
+    console.log('at : '+yb.vq_info.visit_oauth.access_token)
     session.endDialog(yb.vq_info.visit_oauth.access_token)
 }).triggerAction({
     matches: /^test$/
