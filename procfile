@@ -1,0 +1,1 @@
+web: node test/lib/dialogs/test_greeting.js
