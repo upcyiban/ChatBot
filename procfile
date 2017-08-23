@@ -1,1 +1,1 @@
-web: node test/lib/dialogs/test_greeting.js
+web: node index.js

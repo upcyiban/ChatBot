@@ -7,6 +7,6 @@ app.get('/',(req, res, next)=>{
     res.send('This is Chat Bot!!!')
 })
 
-app.listen(80,()=>{
-    console.log('Yes! Application is running')
-})
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+  });
