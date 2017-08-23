@@ -27,9 +27,12 @@ let bot = new builder.UniversalBot(connector, (session)=>{
 // bot.recognizer(new builder.LuisRecognizer(luis_url));
 bot.dialog('greeting',(session)=>{
     console.log('yiban info :'+session.userData.yb_info)
+    console.log('yiban info :'+JSON.stringify(session.userData.yb_info))
     console.log('vq info : '+yb.vq_info)
+    console.log('vq info : '+JSON.stringify(yb.vq_info))
+
     console.log('at : '+yb.access_token.visit_oauth.access_token)
-    session.endDialog(yb.access_token.visit_oauth.access_token)
+    session.endDialog(yb.vq_info.visit_oauth.access_token)
 }).triggerAction({
     matches: /^test$/
 })
