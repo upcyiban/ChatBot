@@ -16,17 +16,17 @@ app.get('/',(req, res, next)=>{
 app.post('/api/messages',connector.listen())
 
 let bot = new builder.UniversalBot(connector, (session)=>{
-    // session.send('Hello World')
+    session.send('Hello World')
 })
 
+const luis_url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/e8704174-630f-4a65-a018-7c634758321c?subscription-key=e6e5627b25f04e8fb05e3dffad6120a3&timezoneOffset=0&verbose=true&q='
+bot.recognizer(new builder.LuisRecognizer(luis_url));
 bot.dialog('greeting',(session)=>{
     session.endDialog('Hello')
 }).triggerAction({
-    matches: 'My.Test'
+    matches: '快搭'
 })
 
-const luis_url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/1d9245db-703c-4326-a5e6-2811a63b0189?subscription-key=4a094653359e49af8f7c11ccd8e81902&timezoneOffset=0&verbose=true&q='
-bot.recognizer(new builder.LuisRecognizer(luis_url));
 
 let server = app.listen(process.env.PORT||5000, ()=> {
     console.log('Node app is running on port',server.address().port);
