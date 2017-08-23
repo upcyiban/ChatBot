@@ -39,6 +39,7 @@ bot.dialog('greeting',[
     matches: /^test$/
 })
 bot.dialog('info',(session)=>{
+    console.log(yb.user())
     yb.user().me((info)=>{
         console.log(info)
         session.endDialog(info.yb_usernick)
