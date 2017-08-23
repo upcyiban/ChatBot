@@ -16,7 +16,7 @@ app.get('/',(req, res, next)=>{
 app.post('/api/messages',connector.listen())
 
 let bot = new builder.UniversalBot(connector, (session)=>{
-    console.log(session.message.user.id)
+    console.log(session.message)
     yb.decryptoVerifyRequest(session.message.user.id)
     session.send(yb.access_token||'Hello World')
 })
