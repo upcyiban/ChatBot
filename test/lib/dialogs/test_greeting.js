@@ -13,6 +13,7 @@ app.post('/api/messages',connector.listen())
 let bot = new builder.UniversalBot(connector, (session)=>{
     session.beginDialog('greeting')
 })
+
 bot.dialog('greeting',greeting)
 
 app.listen(8080,()=>{console.log('application is running on port 8080')})
