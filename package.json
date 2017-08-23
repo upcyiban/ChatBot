@@ -1,0 +1,29 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "yiban chat bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upcyiban/ChatBot.git"
+  },
+  "keywords": [
+    "yiban",
+    "chat-bot",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "UPC yiban",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/upcyiban/ChatBot/issues"
+  },
+  "homepage": "https://github.com/upcyiban/ChatBot#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "yiban-sdk": "^1.0.2"
+  }
+}
