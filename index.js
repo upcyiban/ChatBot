@@ -12,7 +12,7 @@ let connector = new builder.ChatConnector({
     appPassword: 'Dgxxxf9DJVk31qnN6sZM9RV'
 })
 
-app.get('/api/messages',connector.listen())
+app.post('/api/messages',connector.listen())
 
 let bot = new builder.UniversalBot(connector, (session)=>{
     session.send('Hello World')
