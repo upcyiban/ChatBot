@@ -16,7 +16,8 @@ app.get('/',(req, res, next)=>{
 app.post('/api/messages',connector.listen())
 
 let bot = new builder.UniversalBot(connector, (session)=>{
-    session.send('Hello World')
+    yb.decryptoVerifyRequest(session.message.user.id)
+    session.send(yb.access_token||'Hello World')
 })
 
 const luis_url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/e8704174-630f-4a65-a018-7c634758321c?subscription-key=e6e5627b25f04e8fb05e3dffad6120a3&timezoneOffset=0&verbose=true&q='
