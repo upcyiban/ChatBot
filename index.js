@@ -28,7 +28,8 @@ let bot = new builder.UniversalBot(connector, (session)=>{
 bot.dialog('greeting',(session)=>{
     console.log('yiban info :'+session.userData.yb_info)
     console.log('vq info : '+yb.vq_info)
-    session.endDialog(yb.access_token)
+    console.log('at : '+yb.access_token.visit_oauth.access_token)
+    session.endDialog(yb.access_token.visit_oauth.access_token)
 }).triggerAction({
     matches: /^test$/
 })
