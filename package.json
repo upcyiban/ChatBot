@@ -27,6 +27,6 @@
     "botbuilder": "^3.9.1",
     "cors": "^2.8.4",
     "express": "^4.15.4",
-    "yiban-sdk": "^1.0.5"
+    "yiban-sdk": "^1.0.6"
   }
 }
