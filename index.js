@@ -25,6 +25,7 @@ let bot = new builder.UniversalBot(connector, (session)=>{
 const luis_url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/e8704174-630f-4a65-a018-7c634758321c?subscription-key=e6e5627b25f04e8fb05e3dffad6120a3&timezoneOffset=0&verbose=true&q='
 bot.recognizer(new builder.LuisRecognizer(luis_url));
 bot.dialog('greeting',(session)=>{
+    console.log(yb.access_token)
     session.endDialog(yb.access_token)
 }).triggerAction({
     matches: '快搭'
