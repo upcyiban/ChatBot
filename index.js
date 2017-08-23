@@ -7,6 +7,6 @@ app.get('/',(req, res, next)=>{
     res.send('This is Chat Bot!!!')
 })
 
-app.listen(app.get('port'), function() {
+app.listen(5000, function() {
     console.log('Node app is running on port', app.get('port'));
   });
