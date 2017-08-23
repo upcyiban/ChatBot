@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/upcyiban/ChatBot#readme",
   "dependencies": {
+    "botbuilder": "^3.9.1",
     "express": "^4.15.4",
     "yiban-sdk": "^1.0.2"
   }
