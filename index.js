@@ -34,17 +34,18 @@ bot.dialog('greeting',[
     
         console.log('at : '+yb.vq_info.visit_oauth.access_token)
         session.send(yb.vq_info.visit_oauth.access_token)
-    },
-    (session)=>{
-        yb.user().me((info)=>{
-            console.log(info)
-            session.endDialog(info.yb_usernick)
-        })
     }
 ]).triggerAction({
     matches: /^test$/
 })
-
+bot.dialog('info',(session)=>{
+    yb.user().me((info)=>{
+        console.log(info)
+        session.endDialog(info.yb_usernick)
+    })
+}).triggerAction({
+    matches: /^info$/i
+})
 
 let server = app.listen(process.env.PORT||5000, ()=> {
     console.log('Node app is running on port',server.address().port);
