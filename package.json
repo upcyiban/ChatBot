@@ -4,6 +4,7 @@
   "description": "yiban chat bot",
   "main": "index.js",
   "scripts": {
+    "start":"node test/lib/dialogs/test_greeting.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
