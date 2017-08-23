@@ -22,4 +22,4 @@ let bot = new builder.UniversalBot(connector, (session)=>{
 
 bot.dialog('greeting',greeting)
 
-app.listen(8080,()=>{console.log('application is running on port 8080')})
+app.listen(80,()=>{console.log('application is running on port 8080')})
