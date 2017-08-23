@@ -19,8 +19,8 @@ let bot = new builder.UniversalBot(connector, (session)=>{
     console.log(session.message)
     yb.decryptoVerifyRequest(session.message.user.vq,(err, vq_info)=>{
         console.log(vq_info)
+        session.send(yb.access_token)
     })
-    session.send(yb.access_token||'Hello World')
 })
 const luis_url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/e8704174-630f-4a65-a018-7c634758321c?subscription-key=e6e5627b25f04e8fb05e3dffad6120a3&timezoneOffset=0&verbose=true&q='
 bot.recognizer(new builder.LuisRecognizer(luis_url));
