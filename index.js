@@ -25,15 +25,23 @@ let bot = new builder.UniversalBot(connector, (session)=>{
 })
 // const luis_url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/e8704174-630f-4a65-a018-7c634758321c?subscription-key=e6e5627b25f04e8fb05e3dffad6120a3&timezoneOffset=0&verbose=true&q='
 // bot.recognizer(new builder.LuisRecognizer(luis_url));
-bot.dialog('greeting',(session)=>{
-    console.log('yiban info :'+session.userData.yb_info)
-    console.log('yiban info :'+JSON.stringify(session.userData.yb_info))
-    console.log('vq info : '+yb.vq_info)
-    console.log('vq info : '+JSON.stringify(yb.vq_info))
-
-    console.log('at : '+yb.vq_info.visit_oauth.access_token)
-    session.endDialog(yb.vq_info.visit_oauth.access_token)
-}).triggerAction({
+bot.dialog('greeting',[
+    (session)=>{
+        console.log('yiban info :'+session.userData.yb_info)
+        console.log('yiban info :'+JSON.stringify(session.userData.yb_info))
+        console.log('vq info : '+yb.vq_info)
+        console.log('vq info : '+JSON.stringify(yb.vq_info))
+    
+        console.log('at : '+yb.vq_info.visit_oauth.access_token)
+        session.send(yb.vq_info.visit_oauth.access_token)
+    },
+    (session)=>{
+        yb.user().me((info)=>{
+            console.log(info)
+            session.endDialog(info.yb_usernick)
+        })
+    }
+]).triggerAction({
     matches: /^test$/
 })
 
