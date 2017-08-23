@@ -1,8 +1,8 @@
 let express = require('express')
 let builder = require('botbuilder')
+let YiBan = require('yiban-sdk')
 let app = express()
-
-
+let yb = new YiBan('484b6cb2a841acbd','b419227786ef48b206a690f97c2cddf5','','')
 
 let connector = new builder.ChatConnector({
     appId: '3685e916-b8a6-4f3d-8a9e-e4e9231c25a7',
