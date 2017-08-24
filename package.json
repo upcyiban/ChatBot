@@ -4,6 +4,7 @@
   "description": "yiban chat bot",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +25,8 @@
   "homepage": "https://github.com/upcyiban/ChatBot#readme",
   "dependencies": {
     "botbuilder": "^3.9.1",
+    "cors": "^2.8.4",
     "express": "^4.15.4",
-    "yiban-sdk": "^1.0.2"
+    "yiban-sdk": "^1.0.6"
   }
 }
