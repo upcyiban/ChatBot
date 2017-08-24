@@ -3,6 +3,12 @@ let YiBan = require('yiban-sdk')
 let builder = require('botbuilder')
 let joke = require('../../../lib/dialogs/joke')
 let greeting = require('../../../lib/dialogs/greeting')
+let intromoney = require('../../../lib/dialogs/intromoney')
+let havemoney = require('../../../lib/dialogs/havemoney')
+let usemoney = require('../../../lib/dialogs/usemoney')
+let entertain = require('../../../lib/dialogs/entertain')
+let riddle = require('../../../lib/dialogs/riddle')
+let enddialog = require('../../../lib/dialogs/enddialog')
 let app = express()
 let luisAppUrl = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/da682d24-6c13-45d3-a22a-0a17258c92ed?subscription-key=627502f91f1c459f84df8ea1c2ad3fda&timezoneOffset=0&verbose=true&q='
 
@@ -22,5 +28,22 @@ bot.dialog('joke',joke).triggerAction({
 bot.dialog('greeting',greeting).triggerAction({
     matches:'打招呼'
 })
-
+bot.dialog('entertain',entertain).triggerAction({
+    matches:'娱乐'
+})
+bot.dialog('riddle',riddle).triggerAction({
+    matches:'猜谜语'
+})
+bot.dialog('havemoney',havemoney).triggerAction({
+    matches:'获得网薪'
+})
+bot.dialog('intromoney',intromoney).triggerAction({
+    matches:'网薪介绍'
+})
+bot.dialog('usemoney',usemoney).triggerAction({
+    matches:'使用网薪'
+})
+bot.dialog('enddialog',enddialog).triggerAction({
+    matches:'enddialog'
+})
 app.listen(8080,()=>{console.log('application is running on port 8080')})
