@@ -9,6 +9,9 @@ let usemoney = require('../../../lib/dialogs/usemoney')
 let entertain = require('../../../lib/dialogs/entertain')
 let riddle = require('../../../lib/dialogs/riddle')
 let enddialog = require('../../../lib/dialogs/enddialog')
+let contact = require('../../../lib/dialogs/contact')
+let questionnair = require('../../../lib/dialogs/questionnair')
+let solife = require('../../../lib/dialogs/solife')
 let app = express()
 let luisAppUrl = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/da682d24-6c13-45d3-a22a-0a17258c92ed?subscription-key=627502f91f1c459f84df8ea1c2ad3fda&timezoneOffset=0&verbose=true&q='
 
@@ -45,5 +48,14 @@ bot.dialog('usemoney',usemoney).triggerAction({
 })
 bot.dialog('enddialog',enddialog).triggerAction({
     matches:'enddialog'
+})
+bot.dialog('contact',contact).triggerAction({
+    matches:'通讯录'
+})
+bot.dialog('questionnair',questionnair).triggerAction({
+    matches:'调查问卷'
+})
+bot.dialog('solife',solife).triggerAction({
+    matches:'生活查询'
 })
 app.listen(8080,()=>{console.log('application is running on port 8080')})
