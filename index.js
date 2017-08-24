@@ -5,6 +5,27 @@ let https   = require('https')
 let request = require('request')
 let dateformat = require('dateformat')
 let YiBan = require('yiban-sdk')
+let tools= require('./lib/dialogs/tools')//引入
+let toolscommon= require('./lib/dialogs/toolscommon')//引入
+let toolsdao = require('./lib/dialogs/toolsdao')//引入
+let toolslend = require('./lib/dialogs/toolslend')//引入
+let toolsprise = require('./lib/dialogs/toolsprise')//引入
+let toolsqian = require('./lib/dialogs/toolsqian')//引入
+let toolsteach = require('./lib/dialogs/toolsteach')//引入
+let toolswork = require('./lib/dialogs/toolswork')//引入
+let joke = require('./lib/dialogs/joke')
+let greeting = require('./lib/dialogs/greeting')
+let intromoney = require('./lib/dialogs/intromoney')
+let havemoney = require('./lib/dialogs/havemoney')
+let usemoney = require('./lib/dialogs/usemoney')
+let entertain = require('./lib/dialogs/entertain')
+let riddle = require('./lib/dialogs/riddle')
+let enddialog = require('./lib/dialogs/enddialog')
+let contact = require('./lib/dialogs/contact')
+let questionnair = require('./lib/dialogs/questionnair')
+let solife = require('./lib/dialogs/solife')
+let dinner = require('./lib/dialogs/dinner')
+let lifeapp = require('./lib/dialogs/lifeapp')
 let app = express()
 let yb = new YiBan('484b6cb2a841acbd','b419227786ef48b206a690f97c2cddf5','','')
 
@@ -205,7 +226,7 @@ bot.on('conversationUpdate', function (message) {
     console.log('conversationUpdate:')
     console.log(message)
     if (message.membersAdded && message.membersAdded.length > 0 && message.membersAdded[0].name==='ChatBot') {
-        let msg = new builder.Message().address(message.address).text('欢迎使用Bo，快捷查询请回复: <br/> a : 查询今日课表<br/>b : 查询成绩<br/>c : 查询自习教室<br/>d : 查看群公告<br/>或者说出你的问题~~')
+        let msg = new builder.Message().address(message.address).text('你好，我是Bo，快捷查询请回复: <br/> a : 查询今日课表<br/>b : 查询成绩<br/>c : 查询自习教室<br/>d : 查看群公告<br/>或者说出你的问题~~')
         // msg.attachmentLayout(builder.AttachmentLayout.list)
         // msg.addAttachment([
         //     new builder.HeroCard()
@@ -216,6 +237,75 @@ bot.on('conversationUpdate', function (message) {
         bot.send(msg)
     }
 });
+bot.dialog('joke',joke).triggerAction({
+    matches:'讲笑话'
+})
+bot.dialog('greeting',greeting).triggerAction({
+    matches:'打招呼'
+})
+bot.dialog('entertain',entertain).triggerAction({
+    matches:'娱乐'
+})
+bot.dialog('riddle',riddle).triggerAction({
+    matches:'猜谜语'
+})
+bot.dialog('havemoney',havemoney).triggerAction({
+    matches:'获得网薪'
+})
+bot.dialog('intromoney',intromoney).triggerAction({
+    matches:'网薪介绍'
+})
+bot.dialog('usemoney',usemoney).triggerAction({
+    matches:'使用网薪'
+})
+bot.dialog('enddialog',enddialog).triggerAction({
+    matches:'enddialog'
+})
+bot.dialog('contact',contact).triggerAction({
+    matches:'通讯录'
+})
+bot.dialog('questionnair',questionnair).triggerAction({
+    matches:'调查问卷'
+})
+bot.dialog('solife',solife).triggerAction({
+    matches:'生活查询'
+})
+bot.dialog('dinner',dinner).triggerAction({
+    matches:'舌尖上的石大'
+})
+bot.dialog('lifeapp',lifeapp).triggerAction({
+    matches:'应用推荐'
+})
+bot.dialog('tools',tools).triggerAction({
+    matches:"易工具",
+})
+
+bot.dialog('toolscommon',toolscommon).triggerAction({
+    matches:"辅导员评价",
+})
+
+bot.dialog('toolsdao',toolsdao).triggerAction({
+    matches:"易签到",
+})
+
+bot.dialog('toolslend',toolslend).triggerAction({
+    matches:"物资借用",
+})
+
+bot.dialog('toolsprise',toolsprise).triggerAction({
+    matches:"易抽奖",
+})
+bot.dialog('toolsqian',toolsqian).triggerAction({
+    matches:"易抽签",
+})
+
+bot.dialog('toolsteach',toolsteach).triggerAction({
+    matches:"教务系统",
+})
+bot.dialog('toolswork',toolswork).triggerAction({
+    matches:"就业信息",
+})
+
 
 https.createServer(httpsOptions, app).listen(8080,()=>{
     console.log('server is running on port 8080')
