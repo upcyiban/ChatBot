@@ -12,6 +12,8 @@ let enddialog = require('../../../lib/dialogs/enddialog')
 let contact = require('../../../lib/dialogs/contact')
 let questionnair = require('../../../lib/dialogs/questionnair')
 let solife = require('../../../lib/dialogs/solife')
+let dinner = require('../../../lib/dialogs/dinner')
+let lifeapp = require('../../../lib/dialogs/lifeapp')
 let app = express()
 let luisAppUrl = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/da682d24-6c13-45d3-a22a-0a17258c92ed?subscription-key=627502f91f1c459f84df8ea1c2ad3fda&timezoneOffset=0&verbose=true&q='
 
@@ -57,5 +59,11 @@ bot.dialog('questionnair',questionnair).triggerAction({
 })
 bot.dialog('solife',solife).triggerAction({
     matches:'生活查询'
+})
+bot.dialog('dinner',dinner).triggerAction({
+    matches:'舌尖上的石大'
+})
+bot.dialog('lifeapp',lifeapp).triggerAction({
+    matches:'应用推荐'
 })
 app.listen(8080,()=>{console.log('application is running on port 8080')})
