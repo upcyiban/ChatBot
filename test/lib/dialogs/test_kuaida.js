@@ -4,7 +4,7 @@ let builder = require('botbuilder')
 let kuaida = require('../../../lib/dialogs/kuaida')
 let kuaida_zujian = require('../../../lib/dialogs/kuaida_zujian')
 let app = express()
-
+let dinner = require('../../../lib/dialogs/dinner')
 let connector = new builder.ChatConnector({
     appId: '',
     appPassword: ''
@@ -38,6 +38,9 @@ bot.dialog('kuaida',kuaida).triggerAction({
     matches:'快搭'
 })
 bot.dialog('zujian',kuaida_zujian).triggerAction({
-    matches:'快搭组件'    
+    matches:'快搭_组件'    
+})
+bot.dialog('dinner',dinner).triggerAction({
+    matches:'吃饭'
 })
 app.listen(8080,()=>{console.log('application is running on port 8080')})
